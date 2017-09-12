@@ -81,10 +81,8 @@ bool Messages::read() {
 		case kRobotStatus:
 			break;
 		case kHeartbeat:
-      Serial.print("Received heartbeat "); Serial.print(msgNumber); Serial.print(": "); msgNumber++;
 			break;
 		}
-    printMessage();
 		return true;
 	}
 	return false;

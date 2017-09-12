@@ -69,8 +69,6 @@ unsigned char BTComms::getMessageByte(unsigned index) {
 bool BTComms::read() {
   while (Serial3.available()) {
     unsigned inByte = Serial3.read();
-    Serial.print(" ");
-    Serial.print(inByte, HEX);
     switch (BTstate) {
       case kLookingForStart:
         if (inByte != kMessageStart)
@@ -90,7 +88,6 @@ bool BTComms::read() {
       case kReadMessage:
         message[messageIndex++] = inByte;
         if (messageIndex >= messageLength) {
-          Serial.println();
           BTstate = kLookingForStart;
           return true;
         }

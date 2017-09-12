@@ -42,7 +42,6 @@ void loop() {
   if (millis() > timeForHeartbeat) {
     timeForHeartbeat = millis() + 1000;
     msg.sendHeartbeat();
-    Serial.println("Sent heartbeat");
   }
 }
 
